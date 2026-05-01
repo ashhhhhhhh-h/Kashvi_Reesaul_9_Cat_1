@@ -2,7 +2,7 @@ import numpy as np #used for creating arrays of x values for smooth graphs
 import matplotlib.pyplot as plt #used for plotting graphs/rectangles
 
 #first ask the user to enter a function as a string (for example x**2)
-function_input = input("Enter a function in terms of x (such as x**2 or x**3 + 2): ")
+function_input = input("Enter a function in terms of x: ")
 
 #convert bounds into numbers
 lower = float(input("Enter lower bound: "))
@@ -86,16 +86,22 @@ for i in range(rectangles):
     rect_y = [0, height, height, 0]
 
     # Draw rectangle outline
-    plt.fill(rect_x, rect_y, edgecolor="black", fill=False)
+    plt.fill(rect_x, rect_y, alpha=0.3)
 
 #FINAL OUTPUT
 print("Estimated Area =", total_area)
 
 #GRAPH SETTINGS
+plt.plot(x_vals, y_vals, label="Function")
+
+# inside loop:
+plt.fill(rect_x, rect_y, alpha=0.3)
+
+# after loop:
+plt.axhline(0)
+
 plt.title("Area Under Curve Approximation")
 plt.xlabel("x-axis")
 plt.ylabel("f(x)")
 plt.legend()
-
-# show the graph
 plt.show()
