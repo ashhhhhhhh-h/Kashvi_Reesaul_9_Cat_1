@@ -43,12 +43,11 @@ y_vals = f(x_vals)
 plt.plot(x_vals, y_vals, label="Function")
 
 
-
 #MAIN LOOP
 # the loop runs once per rectangle
 for i in range(rectangles):
 
-#CHOOSE X BASED ON THE CHOSEN METHOD
+    #CHOOSE X BASED ON THE CHOSEN METHOD
     if method == "left":
         # left endpoint: start of interval
         x = lower + i * dx
@@ -64,22 +63,23 @@ for i in range(rectangles):
     else:
         print("Invalid method")
         break
-#CALCULATE THE HEIGHT AND AREA
- height = f(x)          # the height of rectangle = function value
+
+    #CALCULATE THE HEIGHT AND AREA
+    height = f(x)          # the height of rectangle = function value
     area = dx * height     # area = width × height
 
     # add absolute value (handles graphs below x-axis)
     total_area += abs(area)
 
-#PRINT THE WORKING OUT 
- print(f"Rectangle {i+1}:")
+    #PRINT THE WORKING OUT 
+    print(f"Rectangle {i+1}:")
     print(f"  x = {x}")
     print(f"  height = {height}")
     print(f"  area = {area}")
     print("----------------------")
 
-#DRAW THE RECTANGLE ON THE GRAPH
- # x coordinates of rectangle corners
+    #DRAW THE RECTANGLE ON THE GRAPH
+    # x coordinates of rectangle corners
     rect_x = [x, x, x + dx, x + dx]
 
     # y coordinates (bottom at 0, top at height)
